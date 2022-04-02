@@ -21,6 +21,16 @@ build:
         manual:
           - dest: .
             src: src/**/*.ts
+    - image: djangbahevans/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+        # noCache: false
+        # squash: false
+      sync:
+        manual:
+          - dest: .
+            src: src/**/*.ts
     - image: djangbahevans/client
       context: client
       docker:

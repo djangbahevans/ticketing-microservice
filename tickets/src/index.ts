@@ -7,10 +7,10 @@ const start = async () => {
     throw new Error("JWT_KEY environment variable must be defined")
 
   if (!process.env.MONGO_URI)
-    throw new Error("JWT_KEY environment variable must be defined")
+    throw new Error("MONGO_URI environment variable must be defined");
 
   try {
-    await mongoose.connect(process.env.MONGO_URI)
+    await mongoose.connect(process.env.MONGO_URI!)
     console.log("Connected to MongoDB")
   } catch (error) {
     console.error(error)
