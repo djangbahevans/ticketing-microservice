@@ -46,8 +46,6 @@ it("fetches orders for a particular user", async () => {
     .set("Cookie", userTwo)
     .send()
     .expect(200)
-  
-    console.log(response.body)
 
   expect(response.body.length).toEqual(2)
   expect(response.body[0].id).toEqual(orderOne.id)
