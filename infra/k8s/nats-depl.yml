@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: tickets-srv
+  name: nats-srv
 spec:
   selector:
-    app: tickets
+    app: nats
   ports:
   - name: client
     port: 4222

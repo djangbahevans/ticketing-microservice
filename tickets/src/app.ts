@@ -3,10 +3,10 @@ import cookieSession from "cookie-session"
 import express from "express"
 import "express-async-errors"
 import { currentUser, NotFoundError, errorHandler } from "../lib"
-import { indexTicketRouter } from "./routers"
-import { createTicketRouter } from "./routers/new"
-import { showTicketRouter } from "./routers/show"
-import { updateTicketRouter } from "./routers/update"
+import { indexTicketRouter } from "./routes"
+import { createTicketRouter } from "./routes/new"
+import { showTicketRouter } from "./routes/show"
+import { updateTicketRouter } from "./routes/update"
 
 
 const app = express()
