@@ -31,6 +31,16 @@ build:
         manual:
           - dest: .
             src: src/**/*.ts
+    - image: djangbahevans/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+        # noCache: false
+        # squash: false
+      sync:
+        manual:
+          - dest: .
+            src: src/**/*.ts
     - image: djangbahevans/client
       context: client
       docker:

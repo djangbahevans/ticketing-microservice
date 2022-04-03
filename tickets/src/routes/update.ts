@@ -27,7 +27,7 @@ router.put(
     if (!ticket)
       throw new NotFoundError()
 
-    if (ticket.userId !== req.user?.id)
+    if (ticket.userId !== req.user!.id)
       throw new NotAuthorizedError()
 
     ticket.set({ title, price })
