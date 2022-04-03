@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express"
-import { NotFoundError } from "../errors"
+import { NotFoundError } from "../../lib"
 import { Ticket } from "../models/ticket"
 
 const router = express.Router()

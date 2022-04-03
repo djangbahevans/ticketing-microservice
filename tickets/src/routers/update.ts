@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express"
 import { body } from "express-validator"
-import { NotAuthorizedError, NotFoundError } from "../errors"
-import { requireAuth, validateRequest } from "../middlewares"
+import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError } from "../../lib"
 import { Ticket } from "../models/ticket"
 
 const router = express.Router()

@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import { body } from "express-validator"
-import { requireAuth, validateRequest } from "../middlewares"
+import { requireAuth, validateRequest } from "../../lib"
 import { Ticket } from "../models/ticket"
 
 const router = express.Router()
