@@ -7,7 +7,8 @@ import { natsWrapper } from "../nats-wrapper"
 
 const router = express.Router()
 
-const EXPIRATION_WINDOW_SECONDS = 15 * 60;
+// TODO: change time back to 15 minutes
+const EXPIRATION_WINDOW_SECONDS = 1 * 60;
 
 router.post(
   "/api/orders",
@@ -46,7 +47,6 @@ router.post(
     })
     await order.save()
 
-    // TODO: Publish an event saying that an event was created
     await new OrderCreatedPublisher(natsWrapper.client).publish({
       id: order.id,
       status: order.status,
