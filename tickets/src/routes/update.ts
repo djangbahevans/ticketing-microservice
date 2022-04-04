@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import { body } from "express-validator"
-import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError } from "../../lib"
+import { requireAuth, validateRequest, NotFoundError, NotAuthorizedError, BadRequestError } from "../../lib"
 import { TicketUpdatedPublisher } from "../events/publishers"
 import { Ticket } from "../models/ticket"
 import { natsWrapper } from "../nats-wrapper"
@@ -27,6 +27,9 @@ router.put(
     if (!ticket)
       throw new NotFoundError()
 
+    if (ticket.orderId)
+      throw new BadRequestError("Cannot edit a reserved ticket")
+
     if (ticket.userId !== req.user!.id)
       throw new NotAuthorizedError()
 
@@ -37,7 +40,8 @@ router.put(
       id: ticket.id,
       title: ticket.title,
       price: ticket.price,
-      userId: ticket.userId
+      userId: ticket.userId,
+      version: ticket.version
     })
 
     res.send(ticket)
