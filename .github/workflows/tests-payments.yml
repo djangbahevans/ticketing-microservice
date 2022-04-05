@@ -1,13 +1,12 @@
 name: tests-payments
 
-env:
-  STRIPE_KEY: ${{ secrets.STRIPE_KEY }}
-
 on:
   pull_request
 
 jobs:
   build:
+    env:
+      STRIPE_KEY: ${{ secrets.STRIPE_KEY }}
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
