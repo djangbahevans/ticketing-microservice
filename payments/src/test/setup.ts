@@ -11,7 +11,7 @@ let mongo: MongoMemoryServer;
 jest.mock('../nats-wrapper')
 
 // TODO: Add Stripe Key for integration test
-process.env.STRIPE_KEY = ""
+// process.env.STRIPE_KEY = ""
 
 beforeAll(async () => {
   process.env.JWT_KEY = "jwt"
