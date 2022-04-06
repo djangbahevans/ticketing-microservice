@@ -3,6 +3,8 @@ import { natsWrapper } from "./nats-wrapper";
 
 
 const start = async () => {
+  console.log("Starting up...")
+  
   if (!process.env.NATS_URL)
     throw new Error("NATS_URL environment variable must be defined");
   if (!process.env.NATS_CLIENT_ID)
