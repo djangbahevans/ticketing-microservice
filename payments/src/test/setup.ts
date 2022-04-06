@@ -10,8 +10,8 @@ let mongo: MongoMemoryServer;
 
 jest.mock('../nats-wrapper')
 
-// TODO: Add Stripe Key for integration test
-process.env.STRIPE_KEY = ""
+// TODO: Find a way to remove this key
+process.env.STRIPE_KEY = "sk_test_51Kkw1YGMnGSnrut5jxunREVBlBplAdz1ChFsp0Wq2BQPKr1JFXUq6n9LXmrzscC0nDMyXBWwYtZuJJDiKepyLiMb00VfVeVqZ5"
 
 beforeAll(async () => {
   process.env.JWT_KEY = "jwt"
